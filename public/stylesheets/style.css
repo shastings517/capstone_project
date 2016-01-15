@@ -1,0 +1,78 @@
+.scale{
+  font-size: 30px;
+}
+
+#neg1{
+  background: #FF9B6D;
+}
+
+#neg2{
+  background: #FFD37C;
+}
+
+#neut{
+  background: #EAFD89;
+}
+
+#pos1{
+  background: #7DBCA9;
+}
+
+#pos2{
+  background: #57BB7E;
+}
+
+
+.streamBtn{
+  margin-top: 20px;
+}
+
+.tweetContainer{
+  margin-top: 10px;
+  height: 480px;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+
+/*5THS COLUMNS*/
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    border-radius: 10px;
+    /*margin-left: 1px;
+    margin-right: 1px;*/
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}

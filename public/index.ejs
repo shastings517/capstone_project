@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="twitterApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">TweetVibe</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li> -->
+        </ul>
+        <!-- <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form> -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/auth/twitter" class='btn btn-default'>Twitter Login</a></li>
+          <!-- <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li> -->
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
+  <!-- <a href="/auth/twitter" class="btn btn-default">Log In to Twitter.</a> -->
+  <div ng-controller="TestApp" class="hugeContainer">
+    <div class="content container-fluid">
+      <div class="row">
+        
+        <div class="col-xs-5ths text-center scale">Negative</div>
+        <div class="col-xs-5ths text-center scale"><span class="glyphicon glyphicon-resize-horizontal" aria-hidden="true"></span></div>
+        <div class="col-xs-5ths text-center scale">Neutral</div>
+        <div class="col-xs-5ths text-center scale"><span class="glyphicon glyphicon-resize-horizontal" aria-hidden="true"></span></div>
+        <div class="col-xs-5ths text-center scale">Positive</div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-xs-5ths text-center" id="neg1">{{countHate}}</div>
+        <div class="col-xs-5ths text-center" id="neg2"></div>
+        <div class="col-xs-5ths text-center" id="neut">{{countMiddle}}</div>
+        <div class="col-xs-5ths text-center" id="pos1"></div>
+        <div class="col-xs-5ths text-center" id="pos2">{{countLove}}</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8">
+          
+        </div>
+        <div class="col-xs-4 tweetContainer">
+          <div class="col-xs-6">
+            <span ng-click="start()" class="btn btn-default btn-lg streamBtn">Start Stream</span>
+          </div>
+          <div class="col-xs-6">
+            <span ng-click="stop()" class="btn btn-default btn-lg streamBtn">Stop Stream</span>
+          </div>
+          <!-- <span class="glyphicon glyphicon-resize-horizontal" aria-hidden="true"></span> -->
+          <h3>tweetCount: {{count}}</h3>
+          <div ng-repeat="t in twitts">
+            <p style="color:{{t.color}}">{{t.user.screen_name}} {{t.text}} {{t.user.location}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- <h2>tweetCount: {{count}}</h2>
+      <h3>
+        <span style="color:blue"> positive: {{countLove}}</span>
+        <span style="color:red"> negative: {{countHate}}</span>
+        <span> neutral: {{countMiddle}}</span>
+        <span> Uncountable tweets: {{countPass}}</span>
+      </h3>
+      <div ng-repeat="t in twitts">
+        <p style="color:{{t.color}}">{{t.user.screen_name}} {{t.text}} {{t.user.location}}</p>
+      </div>
+      <button ng-click="start()">start</button>
+      <button ng-click="stop()">stop</button> -->
+      <!-- <div id="map"></div> -->
+    <!-- </div> -->
+  </div>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_API_KEY + "&signed_in=true&callback=initMap" async defer></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.3.js"></script>
+  <script src="/javascripts/app.js"></script>
+  <script src="/javascripts/engine.js" type="text/javascript"></script>
+</body>
+</html>
+
+ 
